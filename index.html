@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Seasonal Map Themes · MapLibre GL JS</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<aside class="panel">
+  <h1>Seasonal map themes</h1>
+  <p class="sub">One OpenStreetMap base style, re-themed per season with MapLibre GL JS.</p>
+  <div class="themes" id="themes" role="radiogroup" aria-label="Map theme"></div>
+  <p class="desc" id="desc"></p>
+  <div class="opts">
+    <label><input type="checkbox" id="opt-icons" checked /> Seasonal icons</label>
+    <label id="snow-wrap" hidden><input type="checkbox" id="opt-snow" /> Falling snow</label>
+  </div>
+  <details>
+    <summary>How it works</summary>
+    <p>Each theme is a small JSON file of color overrides applied to the base style's layers (land, water, parks, roads, buildings, labels). The base style and tiles come from OpenFreeMap, built on OpenStreetMap data, so adding a new season is just a new palette. Seasonal icons are drawn as map symbols inside the style, so they move, scale and collide with labels like any other map feature. Falling snow is an optional overlay that never blocks panning or zooming and stays off for anyone who prefers reduced motion.</p>
+  </details>
+</aside>
+<div id="map" aria-label="Map preview"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="themes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
